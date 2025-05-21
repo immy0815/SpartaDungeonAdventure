@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
         ReferenceSetup();
         
         moveSpeed = 5;
-        jumpPower = 80;
+        jumpPower = 100;
         minLook = -85;
         maxLook = 85;
         lookSensitivity = 0.1f;
@@ -205,5 +205,13 @@ public class PlayerController : MonoBehaviour
         bool toggle = Cursor.lockState == CursorLockMode.Locked;
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
         canLook = !toggle;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("JumpPad"))
+        {
+            rigid.AddForce(Vector2.up * 200, ForceMode.Impulse);
+        }
     }
 }
