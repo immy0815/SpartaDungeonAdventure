@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     // public ItemData itemData;
     public Action<ItemData> OnAddItem;
     public Transform dropPosition;
+    public bool isItemUsing;
 
     private void Reset()
     {

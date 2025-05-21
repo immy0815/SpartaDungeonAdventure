@@ -26,19 +26,19 @@ public class UIItemSlotPopup : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            itemSlots[1].OnClick();
+            itemSlots[0].OnClick();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            itemSlots[2].OnClick();
+            itemSlots[1].OnClick();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            itemSlots[3].OnClick();
+            itemSlots[2].OnClick();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            itemSlots[4].OnClick();
+            itemSlots[3].OnClick();
         }
     }
     
@@ -82,7 +82,10 @@ public class UIItemSlotPopup : MonoBehaviour
     
     void UseItem(ItemData data)
     {
-        if (data == null) return;
+        bool isItemUsing = CharacterManager.Instance.Player.isItemUsing;
+        if (data == null || isItemUsing) return;
+
+        CharacterManager.Instance.Player.isItemUsing = true;
         
         itemDataList[data].AddQuantity(-1);
         
@@ -123,5 +126,6 @@ public class UIItemSlotPopup : MonoBehaviour
         yield return new WaitForSeconds(5);
         
         CharacterManager.Instance.Player.PlayerController.moveSpeed -= addSpeed;
+        CharacterManager.Instance.Player.isItemUsing = false;
     }
 }
