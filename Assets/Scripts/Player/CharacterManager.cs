@@ -17,14 +17,14 @@ public class CharacterManager : MonoBehaviour
             return instance; 
         }
     }   
-
+    
     private Player player;
     public Player Player
     {
         get { return player; }
         set { player = value; }
     }
-
+    
     private void Awake()
     {
         if (instance == null)
@@ -40,6 +40,5 @@ public class CharacterManager : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
-        
     }
 }
