@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
         CharacterManager.Instance.Player = this;
     }
 
+    // Status <= 
     IEnumerator TakeDamage(float dmg)
     {
         while (true)
@@ -70,6 +71,7 @@ public class Player : MonoBehaviour
         {
             Attackable attackObj = other.gameObject.GetComponent<Attackable>();
             StopCoroutine(damageCoroutines[attackObj]);
+            damageCoroutines.Remove(attackObj);
         }
     }
 }
