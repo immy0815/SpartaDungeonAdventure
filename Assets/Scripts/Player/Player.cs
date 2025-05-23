@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public Action<ItemData> OnAddItem;
     public Transform dropPosition;
     public bool isItemUsing;
+    public float health;
 
     private void Reset()
     {
@@ -19,8 +20,14 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        CharacterManager.Instance.Player = this;
         PlayerController = GetComponent<PlayerController>();
         PlayerInputSystem = GetComponent<PlayerInputSystem>();
+        
+        CharacterManager.Instance.Player = this;
+    }
+
+    void Start()
+    {
+
     }
 }

@@ -6243,6 +6243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropPosition: {fileID: 746695188}
   isItemUsing: 0
+  health: 0
 --- !u!114 &1677046892
 MonoBehaviour:
   m_ObjectHideFlags: 0

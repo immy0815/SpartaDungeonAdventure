@@ -6,6 +6,7 @@ using UnityEngine;
 public class UICanvasGameScene : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI tmpPrompt;
+    
 
     void Reset()
     {
